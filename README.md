@@ -5,5 +5,5 @@
 ![](https://github.com/hecong2735/CoreAnimationDemo/raw/master/img/warning.gif
 )
 ## Draw
-一个简单的绘画板功能，参考[iOS核心动画技巧-矢量绘图](https://zsisme.gitbooks.io/ios-/content/chapter13/catiledLayer.html)
+一个简单的绘画板功能，参考[iOS核心动画技巧-矢量绘图](https://zsisme.gitbooks.io/ios-/content/chapter13/catiledLayer.html)  
 ![](https://github.com/hecong2735/CoreAnimationDemo/raw/master/img/draw.gif)
