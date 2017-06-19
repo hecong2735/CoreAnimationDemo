@@ -8,8 +8,10 @@
 
 #import "ViewController.h"
 #import "WarningLayer.h"
+#import "MaskTransitionViewController.h"
+#import "MaskTransitionAnimation.h"
 
-@interface ViewController ()
+@interface ViewController () <UIViewControllerTransitioningDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *test;
 @property (nonatomic, strong) CALayer *animationLayer;
@@ -22,7 +24,6 @@
     [super viewDidLoad];
     _animationLayer = [CALayer layer];
     [self.view.layer addSublayer:_animationLayer];
-    
 }
 
 
@@ -31,6 +32,16 @@
     WarningLayer *warningLayer = [[WarningLayer alloc] initWithCenter:self.view.center radius:50];
     [_animationLayer addSublayer:warningLayer];
 }
+- (IBAction)showTransition:(id)sender {
+    UIStoryboard *stroybooard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    MaskTransitionViewController *controller = [stroybooard instantiateViewControllerWithIdentifier:@"transition"];
+    controller.transitioningDelegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
 
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    return [[MaskTransitionAnimation alloc] init];
+}
 
 @end

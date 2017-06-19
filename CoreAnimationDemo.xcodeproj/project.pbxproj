@@ -16,6 +16,9 @@
 		54607F401EEE996B00D3B481 /* WarningLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54607F3F1EEE996B00D3B481 /* WarningLayer.m */; };
 		54E287941EF240D100A92726 /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E287931EF240D100A92726 /* DrawViewController.m */; };
 		54E287971EF244F500A92726 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E287961EF244F500A92726 /* DrawView.m */; };
+		54E2879B1EF38C8700A92726 /* CALayer+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2879A1EF38C8700A92726 /* CALayer+Swizzling.m */; };
+		54E2879E1EF3A8B900A92726 /* MaskTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2879D1EF3A8B900A92726 /* MaskTransitionViewController.m */; };
+		54E287A11EF3AC9300A92726 /* MaskTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E287A01EF3AC9300A92726 /* MaskTransitionAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,12 @@
 		54E287931EF240D100A92726 /* DrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawViewController.m; sourceTree = "<group>"; };
 		54E287951EF244F500A92726 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		54E287961EF244F500A92726 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		54E287991EF38C8700A92726 /* CALayer+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Swizzling.h"; sourceTree = "<group>"; };
+		54E2879A1EF38C8700A92726 /* CALayer+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Swizzling.m"; sourceTree = "<group>"; };
+		54E2879C1EF3A8B900A92726 /* MaskTransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskTransitionViewController.h; sourceTree = "<group>"; };
+		54E2879D1EF3A8B900A92726 /* MaskTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskTransitionViewController.m; sourceTree = "<group>"; };
+		54E2879F1EF3AC9300A92726 /* MaskTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskTransitionAnimation.h; sourceTree = "<group>"; };
+		54E287A01EF3AC9300A92726 /* MaskTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskTransitionAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,7 @@
 		54607F171EED49BC00D3B481 /* CoreAnimationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				54E287981EF38C2900A92726 /* Transition */,
 				54E287911EF240BB00A92726 /* Draw */,
 				54607F3D1EEE97EB00D3B481 /* WarningAnimation */,
 				54607F1B1EED49BC00D3B481 /* AppDelegate.h */,
@@ -137,6 +147,19 @@
 				54E287961EF244F500A92726 /* DrawView.m */,
 			);
 			path = Draw;
+			sourceTree = "<group>";
+		};
+		54E287981EF38C2900A92726 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				54E287991EF38C8700A92726 /* CALayer+Swizzling.h */,
+				54E2879A1EF38C8700A92726 /* CALayer+Swizzling.m */,
+				54E2879C1EF3A8B900A92726 /* MaskTransitionViewController.h */,
+				54E2879D1EF3A8B900A92726 /* MaskTransitionViewController.m */,
+				54E2879F1EF3AC9300A92726 /* MaskTransitionAnimation.h */,
+				54E287A01EF3AC9300A92726 /* MaskTransitionAnimation.m */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +267,13 @@
 			files = (
 				54607F401EEE996B00D3B481 /* WarningLayer.m in Sources */,
 				54E287941EF240D100A92726 /* DrawViewController.m in Sources */,
+				54E287A11EF3AC9300A92726 /* MaskTransitionAnimation.m in Sources */,
 				54E287971EF244F500A92726 /* DrawView.m in Sources */,
 				54607F201EED49BC00D3B481 /* ViewController.m in Sources */,
 				54607F1D1EED49BC00D3B481 /* AppDelegate.m in Sources */,
 				54607F1A1EED49BC00D3B481 /* main.m in Sources */,
+				54E2879B1EF38C8700A92726 /* CALayer+Swizzling.m in Sources */,
+				54E2879E1EF3A8B900A92726 /* MaskTransitionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

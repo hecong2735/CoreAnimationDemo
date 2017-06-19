@@ -6,46 +6,105 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4N-h2-HJA">
-                                <rect key="frame" x="231" y="94" width="36" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4N-h2-HJA">
+                                <rect key="frame" x="169" y="99" width="36" height="30"/>
                                 <state key="normal" title="Draw"/>
                                 <connections>
                                     <segue destination="qPW-GY-W9p" kind="presentation" id="4cc-K1-jwZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="testButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyF-gQ-s0i">
-                                <rect key="frame" x="80" y="94" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="testButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyF-gQ-s0i">
+                                <rect key="frame" x="47" y="99" width="57" height="30"/>
                                 <state key="normal" title="Warning"/>
                                 <connections>
                                     <action selector="showWarningLayer:" destination="BYZ-38-t0r" eventType="touchDown" id="8C4-gb-Z5u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-S5-POv">
+                                <rect key="frame" x="268" y="94" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gMR-S5-POv" secondAttribute="height" multiplier="30:15" id="2cs-Cb-Fd0"/>
+                                    <constraint firstAttribute="width" constant="80" id="h8G-Xd-Dq2"/>
+                                </constraints>
+                                <state key="normal" title="Transition"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showTransition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SSw-ek-Mii"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="X4N-h2-HJA" firstAttribute="baseline" secondItem="DyF-gQ-s0i" secondAttribute="baseline" id="6TU-h1-Rb3"/>
+                            <constraint firstItem="gMR-S5-POv" firstAttribute="leading" secondItem="X4N-h2-HJA" secondAttribute="trailing" constant="63" id="Uxl-BM-gKQ"/>
+                            <constraint firstItem="X4N-h2-HJA" firstAttribute="leading" secondItem="DyF-gQ-s0i" secondAttribute="trailing" constant="65" id="gPf-F8-6YF"/>
+                            <constraint firstItem="gMR-S5-POv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="74" id="koA-2O-nsp"/>
+                            <constraint firstItem="X4N-h2-HJA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oza-Jc-0rQ"/>
+                            <constraint firstItem="gMR-S5-POv" firstAttribute="baseline" secondItem="X4N-h2-HJA" secondAttribute="baseline" id="z1R-dd-je6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="test" destination="8bC-Xf-vdC" id="8OZ-pg-ll7"/>
+                        <outlet property="transitionButton" destination="gMR-S5-POv" id="Jfo-nN-20e"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-76" y="179.46026986506749"/>
+        </scene>
+        <!--Transition View Controller-->
+        <scene sceneID="JUK-11-OU2">
+            <objects>
+                <viewController storyboardIdentifier="transition" id="pDF-XH-j3Y" customClass="TransitionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gr0-RS-kNT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yht-oO-and"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="twp-0V-HGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0S-8B-Ikx">
+                                <rect key="frame" x="42" y="28" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="exit:" destination="pDF-XH-j3Y" eventType="touchUpInside" id="G1W-Je-hqz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvZ-uk-axZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="1261"/>
         </scene>
         <!--Draw View Controller-->
         <scene sceneID="WiZ-m3-SDn">
