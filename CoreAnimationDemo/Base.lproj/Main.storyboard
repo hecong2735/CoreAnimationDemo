@@ -37,13 +37,13 @@
                                     <action selector="showWarningLayer:" destination="BYZ-38-t0r" eventType="touchDown" id="8C4-gb-Z5u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-S5-POv">
-                                <rect key="frame" x="268" y="94" width="80" height="40"/>
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-S5-POv">
+                                <rect key="frame" x="244" y="94" width="106" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gMR-S5-POv" secondAttribute="height" multiplier="30:15" id="2cs-Cb-Fd0"/>
                                     <constraint firstAttribute="width" constant="80" id="h8G-Xd-Dq2"/>
                                 </constraints>
-                                <state key="normal" title="Transition"/>
+                                <state key="normal" title="MaskTransition"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
@@ -57,6 +57,14 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showTransition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SSw-ek-Mii"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbA-LK-IjV">
+                                <rect key="frame" x="16" y="223" width="124" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RotationTransition"/>
+                                <connections>
+                                    <action selector="showRotationTransition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zb4-7z-zaU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="-76" y="179.46026986506749"/>
         </scene>
-        <!--Transition View Controller-->
+        <!--Mask Transition View Controller-->
         <scene sceneID="JUK-11-OU2">
             <objects>
-                <viewController storyboardIdentifier="transition" id="pDF-XH-j3Y" customClass="TransitionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transition" id="pDF-XH-j3Y" customClass="MaskTransitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gr0-RS-kNT"/>
                         <viewControllerLayoutGuide type="bottom" id="Yht-oO-and"/>
@@ -133,6 +141,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMn-ee-kWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="29.600000000000001" y="-643.62818590704649"/>
+        </scene>
+        <!--Rotate Transition View Controller-->
+        <scene sceneID="vg7-zZ-b24">
+            <objects>
+                <viewController storyboardIdentifier="rotate" id="k0h-V8-kOQ" customClass="RotateTransitionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bZn-QS-PG1"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ZM-fK-XVp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M2w-eI-dPF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSu-Q6-xsY">
+                                <rect key="frame" x="41" y="48" width="46" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="exit:" destination="k0h-V8-kOQ" eventType="touchUpInside" id="QFn-MP-fXK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gff-sZ-31D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="1914.6926536731635"/>
         </scene>
     </scenes>
 </document>

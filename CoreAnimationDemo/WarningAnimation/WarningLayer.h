@@ -9,12 +9,22 @@
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
+@protocol WarningLayerDelegate <NSObject>
+
+@optional
+
+- (CGPoint)setWarningLayerCenter;
+
+- (CGFloat)setWarningLayerRadius;
+
+- (CGColorRef)setWarningLayerCircleColor;
+
+- (CGColorRef)setWarningLayerExclamationColor;
+
+- (CGFloat)setWarningLayerLineWidth;
+
+@end
+
 @interface WarningLayer : CALayer
-
-@property (nonatomic) CGPoint center;
-@property (nonatomic) CGFloat radius;
-
-- (instancetype)initWithCenter:(CGPoint)center
-                        radius:(CGFloat)radius;
 
 @end

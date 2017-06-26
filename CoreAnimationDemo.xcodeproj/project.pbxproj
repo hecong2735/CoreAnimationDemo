@@ -19,6 +19,8 @@
 		54E2879B1EF38C8700A92726 /* CALayer+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2879A1EF38C8700A92726 /* CALayer+Swizzling.m */; };
 		54E2879E1EF3A8B900A92726 /* MaskTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2879D1EF3A8B900A92726 /* MaskTransitionViewController.m */; };
 		54E287A11EF3AC9300A92726 /* MaskTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E287A01EF3AC9300A92726 /* MaskTransitionAnimation.m */; };
+		54E287A41EF790D000A92726 /* RotateTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E287A31EF790D000A92726 /* RotateTransitionAnimation.m */; };
+		54E287A71EF7917600A92726 /* RotateTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E287A61EF7917600A92726 /* RotateTransitionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		54E2879D1EF3A8B900A92726 /* MaskTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskTransitionViewController.m; sourceTree = "<group>"; };
 		54E2879F1EF3AC9300A92726 /* MaskTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskTransitionAnimation.h; sourceTree = "<group>"; };
 		54E287A01EF3AC9300A92726 /* MaskTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskTransitionAnimation.m; sourceTree = "<group>"; };
+		54E287A21EF790D000A92726 /* RotateTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateTransitionAnimation.h; sourceTree = "<group>"; };
+		54E287A31EF790D000A92726 /* RotateTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotateTransitionAnimation.m; sourceTree = "<group>"; };
+		54E287A51EF7917600A92726 /* RotateTransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateTransitionViewController.h; sourceTree = "<group>"; };
+		54E287A61EF7917600A92726 /* RotateTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotateTransitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,10 @@
 				54E2879D1EF3A8B900A92726 /* MaskTransitionViewController.m */,
 				54E2879F1EF3AC9300A92726 /* MaskTransitionAnimation.h */,
 				54E287A01EF3AC9300A92726 /* MaskTransitionAnimation.m */,
+				54E287A21EF790D000A92726 /* RotateTransitionAnimation.h */,
+				54E287A31EF790D000A92726 /* RotateTransitionAnimation.m */,
+				54E287A51EF7917600A92726 /* RotateTransitionViewController.h */,
+				54E287A61EF7917600A92726 /* RotateTransitionViewController.m */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -266,11 +276,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				54607F401EEE996B00D3B481 /* WarningLayer.m in Sources */,
+				54E287A71EF7917600A92726 /* RotateTransitionViewController.m in Sources */,
 				54E287941EF240D100A92726 /* DrawViewController.m in Sources */,
 				54E287A11EF3AC9300A92726 /* MaskTransitionAnimation.m in Sources */,
 				54E287971EF244F500A92726 /* DrawView.m in Sources */,
 				54607F201EED49BC00D3B481 /* ViewController.m in Sources */,
 				54607F1D1EED49BC00D3B481 /* AppDelegate.m in Sources */,
+				54E287A41EF790D000A92726 /* RotateTransitionAnimation.m in Sources */,
 				54607F1A1EED49BC00D3B481 /* main.m in Sources */,
 				54E2879B1EF38C8700A92726 /* CALayer+Swizzling.m in Sources */,
 				54E2879E1EF3A8B900A92726 /* MaskTransitionViewController.m in Sources */,

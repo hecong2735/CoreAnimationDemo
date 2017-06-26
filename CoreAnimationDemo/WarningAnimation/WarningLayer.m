@@ -12,17 +12,43 @@
 
 @property (nonatomic, strong) CALayer* exclamationLayer;
 @property (nonatomic) CGFloat lineWidth;
+@property (nonatomic) CGPoint center;
+@property (nonatomic) CGFloat radius;
+@property (nonatomic) CGColorRef circleColor;
+@property (nonatomic) CGColorRef exclamationColor;
+@property (nonatomic, weak) id<WarningLayerDelegate> argDelegate;
 
 @end
 
 @implementation WarningLayer
 
-- (instancetype)initWithCenter:(CGPoint)center
-                        radius:(CGFloat)radius{
+- (instancetype)init{
     self = [super init];
-    _center = center;
-    _radius = radius;
-    _lineWidth = 5.0;
+    if ([_argDelegate respondsToSelector:@selector(setWarningLayerCenter)]) {
+        _center = [_argDelegate setWarningLayerCenter];
+    } else {
+        _center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
+    }
+    if ([_argDelegate respondsToSelector:@selector(setWarningLayerRadius)]) {
+        _radius = [_argDelegate setWarningLayerRadius];
+    } else {
+        _radius = 50.0;
+    }
+    if ([_argDelegate respondsToSelector:@selector(setWarningLayerLineWidth)]) {
+        _lineWidth = [_argDelegate setWarningLayerLineWidth];
+    } else {
+        _lineWidth = 5.0;
+    }
+    if ([_argDelegate respondsToSelector:@selector(setWarningLayerCircleColor)]) {
+        _circleColor = [_argDelegate setWarningLayerCircleColor];
+    } else {
+        _circleColor = [UIColor blueColor].CGColor;
+    }
+    if ([_argDelegate respondsToSelector:@selector(setWarningLayerExclamationColor)]) {
+        _exclamationColor = [_argDelegate setWarningLayerExclamationColor];
+    } else {
+        _exclamationColor = [UIColor redColor].CGColor;
+    }
     [self addCircle];
     
     return self;
@@ -35,7 +61,7 @@
     [path addArcWithCenter:CGPointMake(0.0, 0.0) radius:_radius startAngle:M_PI * 2 endAngle:0 clockwise:NO];
     circleShapeLayer.path = path.CGPath;
     circleShapeLayer.lineWidth = _lineWidth;
-    circleShapeLayer.strokeColor = [UIColor blueColor].CGColor;
+    circleShapeLayer.strokeColor = _circleColor;
     circleShapeLayer.fillColor = nil;
     
     CABasicAnimation *strokeAniamtion = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -66,7 +92,7 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path addArcWithCenter:arcCenter radius:arcRadius startAngle:origin endAngle:dest clockwise:NO];
     pointShaperLayer.path = path.CGPath;
-    pointShaperLayer.strokeColor = [UIColor blueColor].CGColor;
+    pointShaperLayer.strokeColor = _circleColor;
     pointShaperLayer.lineWidth = _lineWidth;
     pointShaperLayer.fillColor = nil;
     pointShaperLayer.position = _center;
@@ -102,7 +128,7 @@
     topLineShapeLayer.path = topLinePath.CGPath;
     topLineShapeLayer.lineWidth = _lineWidth;
     topLineShapeLayer.fillColor = nil;
-    topLineShapeLayer.strokeColor = [UIColor redColor].CGColor;
+    topLineShapeLayer.strokeColor = _exclamationColor;
     [_exclamationLayer addSublayer:topLineShapeLayer];
     
     CAShapeLayer *bottomLineShapeLayer = [CAShapeLayer layer];
@@ -112,7 +138,7 @@
     bottomLineShapeLayer.path = bottomLinePath.CGPath;
     bottomLineShapeLayer.fillColor = nil;
     bottomLineShapeLayer.lineWidth = _lineWidth;
-    bottomLineShapeLayer.strokeColor = [UIColor redColor].CGColor;
+    bottomLineShapeLayer.strokeColor = _exclamationColor;
     [_exclamationLayer addSublayer:bottomLineShapeLayer];
     
     CABasicAnimation *startStrokeAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
@@ -143,6 +169,8 @@
     shakeAnimation.duration = 0.1;
     shakeAnimation.autoreverses = YES;
     shakeAnimation.repeatCount = 1.5;
+    shakeAnimation.delegate = self;
+    [shakeAnimation setValue:@"shake" forKey:@"name"];
     [_exclamationLayer addAnimation:shakeAnimation forKey:nil];
 
 }
@@ -156,6 +184,9 @@
     }
     if ([[anim valueForKey:@"name"] isEqualToString:@"stroke"]) {
         [self shakeExclamation];
+    }
+    if ([[anim valueForKey:@"name"] isEqualToString:@"shake"]) {
+        [self removeFromSuperlayer];
     }
 }
 @end

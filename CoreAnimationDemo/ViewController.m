@@ -10,11 +10,14 @@
 #import "WarningLayer.h"
 #import "MaskTransitionViewController.h"
 #import "MaskTransitionAnimation.h"
+#import "RotateTransitionAnimation.h"
+#import "RotateTransitionViewController.h"
 
 @interface ViewController () <UIViewControllerTransitioningDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *test;
 @property (nonatomic, strong) CALayer *animationLayer;
+@property (nonatomic, strong) UIStoryboard *stroyboard;
 
 @end
 
@@ -24,24 +27,34 @@
     [super viewDidLoad];
     _animationLayer = [CALayer layer];
     [self.view.layer addSublayer:_animationLayer];
+    _stroyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
 }
 
+- (IBAction)showRotationTransition:(id)sender {
+    RotateTransitionViewController *controller = [_stroyboard instantiateViewControllerWithIdentifier:@"rotate"];
+    controller.transitioningDelegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
 - (IBAction)showWarningLayer:(id)sender {
     _animationLayer.sublayers = nil;
-    WarningLayer *warningLayer = [[WarningLayer alloc] initWithCenter:self.view.center radius:50];
+    WarningLayer *warningLayer = [[WarningLayer alloc] init];
     [_animationLayer addSublayer:warningLayer];
 }
 - (IBAction)showTransition:(id)sender {
-    UIStoryboard *stroybooard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    MaskTransitionViewController *controller = [stroybooard instantiateViewControllerWithIdentifier:@"transition"];
+    MaskTransitionViewController *controller = [_stroyboard instantiateViewControllerWithIdentifier:@"transition"];
     controller.transitioningDelegate = self;
     [self presentViewController:controller animated:YES completion:nil];
-
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    return [[MaskTransitionAnimation alloc] init];
+    if ([presented isKindOfClass:[MaskTransitionViewController class]]) {
+        return [[MaskTransitionAnimation alloc] init];
+    }
+    if ([presented isKindOfClass:[RotateTransitionViewController class]]) {
+        return [[RotateTransitionAnimation alloc] init];
+    }
+    return  nil;
 }
 
 @end
